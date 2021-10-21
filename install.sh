@@ -18,9 +18,9 @@ sudo npm install
 cd ~/.forta && rm forta.config.json
 authkey=`echo $pid:$secret | base64`
 bash -c "cat > ~/.forta/forta.config.json<<EOF
-{ \
-\"jsonRpcUrl\": \"$endpoint\", \
-\"ipfsGatewayUrl\": \"https://ipfs.infura.io:5001\", \
-\"ipfsGatewayAuth\": \"$authkey\" \
+{
+\"jsonRpcUrl\": \"$endpoint\",
+\"ipfsGatewayUrl\": \"https://ipfs.infura.io:5001\",
+\"ipfsGatewayAuth\": \"$authkey\"
 }
 EOF"
