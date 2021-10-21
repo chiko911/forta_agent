@@ -17,10 +17,11 @@ cd ~/$agentname && sudo npx forta-agent@latest init --typescript
 sudo npm install
 cd ~/.forta && rm forta.config.json
 authkey=`echo $pid:$secret | base64`
-bash -c "cat > ~/.forta/forta.config.json<<EOF
+rm ~/.forta/forta.config.json
+bash -c 'cat > ~/.forta/forta.config.json<<EOF
 {
-\"jsonRpcUrl\": \"$endpoint\",
-\"ipfsGatewayUrl\": \"https://ipfs.infura.io:5001\",
-\"ipfsGatewayAuth\": \"$authkey\"
+"jsonRpcUrl": "$endpoint",
+"ipfsGatewayUrl": "https://ipfs.infura.io:5001",
+"ipfsGatewayAuth": "$authkey"
 }
-EOF"
+EOF'
