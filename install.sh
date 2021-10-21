@@ -24,4 +24,3 @@ bash -c "cat > ~/.forta/forta.config.json<<EOF
 \"ipfsGatewayAuth\": \"$authkey\" \
 }
 EOF"
-sed -i 's/forta-agent-starter/$agentname/g' ~/$agentname/packages.json
