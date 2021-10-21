@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Введите название агента:"
+echo -e "Введите название агента:"
 read agentname
 echo -e "\033[31m Infura endpoint (Mainnet):"
 read endpoint
@@ -17,12 +17,11 @@ cd ~/$agentname && sudo npx forta-agent@latest init --typescript
 sudo npm install
 cd ~/.forta && rm forta.config.json
 authkey=`echo $pid:$secret | base64`
-bash -c 'cat > ~/.forta/forta.config.json<<EOF
+bash -c "cat > ~/.forta/forta.config.json<<EOF
 { \
-"jsonRpcUrl": "$endpoint", \
-"ipfsGatewayUrl": "https://ipfs.infura.io:5001", \
-"ipfsGatewayAuth": "$authkey" \
+\"jsonRpcUrl\": \"$endpoint\", \
+\"ipfsGatewayUrl\": \"https://ipfs.infura.io:5001\", \
+\"ipfsGatewayAuth\": \"$authkey\" \
 }
-EOF'
-
+EOF"
 sed -i 's/forta-agent-starter/$agentname/g' ~/$agentname/packages.json
