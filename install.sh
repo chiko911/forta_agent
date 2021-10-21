@@ -17,7 +17,6 @@ cd ~/$agentname && sudo npx forta-agent@latest init --typescript
 sudo npm install
 cd ~/.forta && rm forta.config.json
 authkey=`echo $pid:$secret | base64`
-rm ~/.forta/forta.config.json
 bash -c 'cat > ~/.forta/forta.config.json<<EOF
 {
 "jsonRpcUrl": "$endpoint",
